@@ -99,9 +99,9 @@ left.addEventListener("click", function(event) {
                 if(nameSrc=='Name: '+country[i].countryname){
                     i-1
                     document.getElementById('flag').src=country[i].flag;
-                    document.getElementById('name').innerHTML=country[i].countryname;
-                    document.getElementById('capital').innerHTML=country[i].capital;
-                    document.getElementById('population').innerHTML=country[i].population;
+                    document.getElementById('name').innerHTML='Name: '+country[i].countryname;
+                    document.getElementById('capital').innerHTML='Capital: '+country[i].capital;
+                    document.getElementById('population').innerHTML='Population: '+country[i].population;
                     break;
                     
                 }
