@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CWS - Uppgift</title>
+        <link href="./style.css" rel="stylesheet" >
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
+
+    </head>
+    <body>
+        <div id="header">
+
+            <div id="logo">
+                <h1><div id="icon"><span class="material-symbols-outlined">
+                travel_explore
+            </span></div> CWS - <br/> Assignment</h1></div>
+        
+        </div>
+        <section id="info">
+            <h2>Information</h2><br/>
+            <button id="left-btn">Left</button><button id="right-btn">Right</button>
+        </section>
+        <script>
+            const country=[{
+            countryname:'Sweden',
+            capital:'Stockholm',
+            population:'10,242,141',
+            flag:'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Sweden.svg'
+        },
+        {
+            countryname:'Finland',
+            capital:'Helsinki',
+            population:'5,560,243',
+            flag:'./flags/Flag_of_Finland.svg'
+        },
+        {
+            countryname:'Chile',
+            capital:'Santiago',
+            population:'19,488,539',
+            flag:'./flags/Flag_of_Chile.svg'
+        },
+        ]
+        function getCountryInfo(){
+            const newCountryList=document.createElement('ul');
+            const newCountryListitem=document.createElement('li');
+            const newCountryDiv=document.createElement('div');
+            const newFlagImg=document.createElement('img');
+            newFlagImg.id='flag';
+            const newCountryName=document.createElement('h3');
+            newCountryName.id='name';
+            const newCountryCapital=document.createElement('h3');
+            newCountryCapital.id='capital';
+            const newCountryPopulation=document.createElement('h3');
+            newCountryPopulation.id='population';
+            document.getElementById('info').appendChild(newCountryList);
+            newCountryDiv.classList='country-container';
+            
+            newFlagImg.src=country[0].flag;
+            
+            newCountryList.appendChild(newCountryListitem);
+            newCountryListitem.appendChild(newCountryDiv);
+            newCountryDiv.appendChild(newFlagImg);
+            newCountryDiv.appendChild(newCountryName);
+            newCountryDiv.appendChild(newCountryCapital);
+            newCountryDiv.appendChild(newCountryPopulation);
+            newCountryName.innerHTML='Name: '+ country[0].countryname;
+            newCountryCapital.innerHTML='Capital: '+ country[0].capital;
+            newCountryPopulation.innerHTML='Population: '+country[0].population;
+        
+        }
+        getCountryInfo();
+        const right= document.getElementById('right-btn');
+        const left= document.getElementById('left-btn');
+        let nameSrc=document.getElementById('name').innerHTML;
+        console.log(nameSrc)
+        right.addEventListener("click", function(event) {
+            for(let i=0;i<country.length;i++){
+                console.log(i)
+                if(nameSrc=='Name: '+country[i].countryname){
+                    i++
+                    document.getElementById('flag').src=country[i].flag;
+                    document.getElementById('name').innerHTML=country[i].countryname;
+                    document.getElementById('capital').innerHTML=country[i].capital;
+                    document.getElementById('population').innerHTML=country[i].population;
+                    break;
+                    
+                }
+
+                
+            }
+
+
+});
+left.addEventListener("click", function(event) {
+            for(let i=0;i<country.length;i++){
+                console.log(i)
+                if(nameSrc=='Name: '+country[i].countryname){
+                    i-1
+                    document.getElementById('flag').src=country[i].flag;
+                    document.getElementById('name').innerHTML=country[i].countryname;
+                    document.getElementById('capital').innerHTML=country[i].capital;
+                    document.getElementById('population').innerHTML=country[i].population;
+                    break;
+                    
+                }
+
+                
+            }
+
+
+});
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "Pacifico";
+     src: url("./Philosopher/Philosopher-BoldItalic.ttf");
+   }
+
+body{
+    background-color: rgba(123, 199, 170, .75);
+    color: rgb(168, 144, 112);
+
+}
+#icon{
+    float: left;
+
+}
+.material-symbols-outlined {
+    initial-letter: 2 !important;
+    font-size: 2em !important;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+
+#logo{
+    
+    font-family: Pacifico, 'Space Mono', monospace;
+    background-color: aquamarine;
+    text-align: left;
+    width: 300px;
+    background-color: white;
+    opacity:0.8;
+   
+    border-style:none;
+    
+    left:50;
+    
+  background: -webkit-linear-gradient(#eee, rgb(104, 56, 56));
+  background-clip: initial;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+#header{
+    top:0;
+    left: 0;
+    position: absolute;
+    background-color: #13436b;
+    width: 100%;
+    text-decoration: underline;
+    
+    
+  }
+  .country-container{
+    background-color: #13436b;
+    margin:0 auto;
+}
+#info{
+    display: flex;
+    float: left;
+      width:100%;
+    position: relative;
+    margin-top:10em;
+
+    
+    justify-content: center;
+    display: flex;
+    
+  }
+  img{
+    width: 200px !important;
+    float: left;
+    padding: 10px;
+    background-color: #13436b;
+
+
+  }
+  li{
+    list-style: none;
+    display: flex;
+    background-color: #13436b;
+  }
+  h3{
+
+    background-color: azure;
+    width:500px;
+    margin-left: 220px;
+    margin-right: 20px;
+    padding-left: 15px;
+    line-height: 4em;
+  }
