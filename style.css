@@ -90,3 +90,7 @@ body{
     padding-left: 15px;
     line-height: 4em;
   }
+  button{
+    height: 50px;
+    width: 150px;
+  }
