@@ -22,6 +22,19 @@
             <h2>Information</h2><br/>
             <button id="left-btn">Left</button><button id="right-btn">Right</button>
         </section>
+        <section>
+            <div id="formcontainer">
+
+                <h2>Add country</h2>
+                <form id="addCountryForm">
+                    <label>Name</label><input id="nameForm" placeholder="The name of the country..." />
+                    <label>Capital</label><input id="capitalForm" placeholder="The Capital of the country..." />
+                    <label>Population</label><input id="popForm" placeholder="The population of the country..." />
+                    <label>Flag</label><input id="flagForm" placeholder="Type URL for flag image..." />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            </section>
         <script>
             const country=[{
             countryname:'Sweden',
@@ -55,20 +68,17 @@
             const newCountryPopulation=document.createElement('h3');
             newCountryPopulation.id='population';
             document.getElementById('info').appendChild(newCountryList);
-            newCountryDiv.classList='country-container';
-            
-            newFlagImg.src=country[0].flag;
-            
+            newCountryDiv.classList='country-container';            
+            newFlagImg.src=country[2].flag;
             newCountryList.appendChild(newCountryListitem);
             newCountryListitem.appendChild(newCountryDiv);
             newCountryDiv.appendChild(newFlagImg);
             newCountryDiv.appendChild(newCountryName);
             newCountryDiv.appendChild(newCountryCapital);
             newCountryDiv.appendChild(newCountryPopulation);
-            newCountryName.innerHTML='Name: '+ country[0].countryname;
-            newCountryCapital.innerHTML='Capital: '+ country[0].capital;
-            newCountryPopulation.innerHTML='Population: '+country[0].population;
-        
+            newCountryName.innerHTML='Name: '+ country[2].countryname;
+            newCountryCapital.innerHTML='Capital: '+ country[2].capital;
+            newCountryPopulation.innerHTML='Population: '+country[2].population;        
         }
         getCountryInfo();
         const right= document.getElementById('right-btn');
@@ -84,14 +94,9 @@
                     document.getElementById('name').innerHTML='Name: '+country[i].countryname;
                     document.getElementById('capital').innerHTML='Capital: '+country[i].capital;
                     document.getElementById('population').innerHTML='Population: '+country[i].population;
-                    break;
-                    
-                }
-
-                
+                    break;                   
+                }                
             }
-
-
 });
 left.addEventListener("click", function(event) {
             for(let i=0;i<country.length;i++){
@@ -102,16 +107,28 @@ left.addEventListener("click", function(event) {
                     document.getElementById('name').innerHTML='Name: '+country[i].countryname;
                     document.getElementById('capital').innerHTML='Capital: '+country[i].capital;
                     document.getElementById('population').innerHTML='Population: '+country[i].population;
-                    break;
-                    
-                }
-
-                
+                    break;                    
+                }                
             }
-
-
 });
-        
+document.getElementById('addCountryForm').addEventListener('submit', function(event){
+    event.preventDefault();
+    let nameInput=document.getElementById('nameForm').value;
+    let capInput=document.getElementById('capitalForm').value;
+    let popInput=document.getElementById('popForm').value;
+    let flagInput=document.getElementById('flagForm').value;
+    const newCountry={};
+    const countryname=nameInput;
+    const capital=capInput;
+    const population=popInput;
+    const flag=flagInput;
+    newCountry['countryname']=countryname;
+    newCountry['capital']=capital;
+    newCountry['population']=population;
+    newCountry['flag']=flag;
+    country.push(newCountry);
+    console.log(newCountry);
+});
         </script>
     </body>
 </html>

@@ -94,3 +94,10 @@ body{
     height: 50px;
     width: 150px;
   }
+  #formcontainer{
+    display: block;
+    margin-left: 520px; 
+  }
+  form{
+    width:100px;
+  }
