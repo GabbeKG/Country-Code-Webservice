@@ -85,7 +85,7 @@
         getCountryInfo();
         const right= document.getElementById('right-btn');
         const left= document.getElementById('left-btn');
-        let countryIndex=1;
+        let countryIndex=0;
         let nameSrc=document.getElementById('name').innerHTML;
         console.log(nameSrc)
         function rightBtnevent(){
@@ -94,14 +94,14 @@
                 console.log('Right button CLICKED!')
                 console.log()
                 
-                document.getElementById('flag').src=country[countryIndex].flag;
-                document.getElementById('name').innerHTML='Name: '+country[countryIndex].countryname;
-                document.getElementById('capital').innerHTML='Capital: '+country[countryIndex].capital;
-                document.getElementById('population').innerHTML='Population: '+country[countryIndex].population;
                 countryIndex++;
                 if(countryIndex>country.length - 1){
                     countryIndex=0;
                            }
+                document.getElementById('flag').src=country[countryIndex].flag;
+                document.getElementById('name').innerHTML='Name: '+country[countryIndex].countryname;
+                document.getElementById('capital').innerHTML='Capital: '+country[countryIndex].capital;
+                document.getElementById('population').innerHTML='Population: '+country[countryIndex].population;
                 
                 
                 // }
