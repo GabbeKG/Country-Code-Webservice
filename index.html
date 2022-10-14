@@ -36,6 +36,7 @@
             </div>
             </section>
         <script>
+            //Country object array declaration
             const country=[{
             countryname:'Sweden',
             capital:'Stockholm',
@@ -56,6 +57,7 @@
         },
         ]
         function getCountryInfo(){
+            //Create elements required with classnames and IDs for CSS styling
             const newCountryList=document.createElement('ul');
             const newCountryListitem=document.createElement('li');
             const newCountryDiv=document.createElement('div');
@@ -69,48 +71,63 @@
             newCountryPopulation.id='population';
             document.getElementById('info').appendChild(newCountryList);
             newCountryDiv.classList='country-container';            
-            newFlagImg.src=country[2].flag;
+            newFlagImg.src=country[0].flag;
             newCountryList.appendChild(newCountryListitem);
             newCountryListitem.appendChild(newCountryDiv);
             newCountryDiv.appendChild(newFlagImg);
             newCountryDiv.appendChild(newCountryName);
             newCountryDiv.appendChild(newCountryCapital);
             newCountryDiv.appendChild(newCountryPopulation);
-            newCountryName.innerHTML='Name: '+ country[2].countryname;
-            newCountryCapital.innerHTML='Capital: '+ country[2].capital;
-            newCountryPopulation.innerHTML='Population: '+country[2].population;        
+            newCountryName.innerHTML='Name: '+ country[0].countryname;
+            newCountryCapital.innerHTML='Capital: '+ country[0].capital;
+            newCountryPopulation.innerHTML='Population: '+country[0].population;        
         }
         getCountryInfo();
         const right= document.getElementById('right-btn');
         const left= document.getElementById('left-btn');
+        let countryIndex=1;
         let nameSrc=document.getElementById('name').innerHTML;
         console.log(nameSrc)
-        right.addEventListener("click", function(event) {
-            for(let i=0;i<country.length;i++){
-                console.log(i)
-                if(nameSrc=='Name: '+country[i].countryname){
-                    i++
-                    document.getElementById('flag').src=country[i].flag;
-                    document.getElementById('name').innerHTML='Name: '+country[i].countryname;
-                    document.getElementById('capital').innerHTML='Capital: '+country[i].capital;
-                    document.getElementById('population').innerHTML='Population: '+country[i].population;
-                    break;                   
-                }                
-            }
-});
-left.addEventListener("click", function(event) {
-            for(let i=0;i<country.length;i++){
-                console.log(i)
-                if(nameSrc=='Name: '+country[i].countryname){
-                    i-1
-                    document.getElementById('flag').src=country[i].flag;
-                    document.getElementById('name').innerHTML='Name: '+country[i].countryname;
-                    document.getElementById('capital').innerHTML='Capital: '+country[i].capital;
-                    document.getElementById('population').innerHTML='Population: '+country[i].population;
-                    break;                    
-                }                
-            }
-});
+        function rightBtnevent(){
+
+            right.addEventListener("click", function(event) {
+                console.log('Right button CLICKED!')
+                console.log()
+                if(countryIndex==0){
+                    countryIndex=0;
+                           }
+                           else{
+
+                               
+                               document.getElementById('flag').src=country[countryIndex].flag;
+                               document.getElementById('name').innerHTML='Name: '+country[countryIndex].countryname;
+                               document.getElementById('capital').innerHTML='Capital: '+country[countryIndex].capital;
+                               document.getElementById('population').innerHTML='Population: '+country[countryIndex].population;
+                               countryIndex++;
+                            }
+                
+                
+                
+            });
+        }
+        //for(let i=0;i<country.length;i++){
+        //} 
+    //                    if(nameSrc=='Name: '+country[countryIndex].countryname){
+        rightBtnevent();
+        function leftBtnEvent(){
+
+        }
+        left.addEventListener("click", function(event) {
+            console.log(countryIndex)
+            document.getElementById('flag').src=country[countryIndex].flag;
+            document.getElementById('name').innerHTML='Name: '+country[countryIndex].countryname;
+            document.getElementById('capital').innerHTML='Capital: '+country[countryIndex].capital;
+            document.getElementById('population').innerHTML='Population: '+country[countryIndex].population;
+            countryIndex--;
+                if(countryIndex<0){
+                    countryIndex=country.length - 1;
+                }
+        });
 document.getElementById('addCountryForm').addEventListener('submit', function(event){
     event.preventDefault();
     let nameInput=document.getElementById('nameForm').value;
