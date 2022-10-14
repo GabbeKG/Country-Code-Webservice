@@ -93,21 +93,18 @@
             right.addEventListener("click", function(event) {
                 console.log('Right button CLICKED!')
                 console.log()
-                if(countryIndex==0){
+                
+                document.getElementById('flag').src=country[countryIndex].flag;
+                document.getElementById('name').innerHTML='Name: '+country[countryIndex].countryname;
+                document.getElementById('capital').innerHTML='Capital: '+country[countryIndex].capital;
+                document.getElementById('population').innerHTML='Population: '+country[countryIndex].population;
+                countryIndex++;
+                if(countryIndex>country.length - 1){
                     countryIndex=0;
                            }
-                           else{
-
-                               
-                               document.getElementById('flag').src=country[countryIndex].flag;
-                               document.getElementById('name').innerHTML='Name: '+country[countryIndex].countryname;
-                               document.getElementById('capital').innerHTML='Capital: '+country[countryIndex].capital;
-                               document.getElementById('population').innerHTML='Population: '+country[countryIndex].population;
-                               countryIndex++;
-                            }
                 
                 
-                
+                // }
             });
         }
         //for(let i=0;i<country.length;i++){
@@ -124,7 +121,7 @@
             document.getElementById('capital').innerHTML='Capital: '+country[countryIndex].capital;
             document.getElementById('population').innerHTML='Population: '+country[countryIndex].population;
             countryIndex--;
-                if(countryIndex<0){
+                if(countryIndex==0 - 1){
                     countryIndex=country.length - 1;
                 }
         });
